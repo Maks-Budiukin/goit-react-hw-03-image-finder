@@ -16,12 +16,47 @@ export class Searchbar extends Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
-        this.props.onSubmit(this.state)
+      event.preventDefault();
+      
+
+
+      
+        fetch(`https://pixabay.com/api/?q=cat&page=1&key=31301300-300be7510f84e8e4ecf9762e9&image_type=photo&orientation=horizontal&per_page=12`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(response.status);
+            }
+            return response.json();
+        })
+        
+        .then(data => {
+            let {id, webformatURL, largeImageURL} = data.hits[0];
+          console.log(id, webformatURL, largeImageURL)
+          
+
+            
+            })
+            .catch((error) => {
+            
+                console.log(error);
+            
+    })
+
+
+
+
+
+
+
+
+
+        this.props.onSubmit(this.state.request)
         this.setState({
             request: '',
         })
   }
+
+  
 
   render() {
     return (
