@@ -32,3 +32,9 @@ img {
     grid-gap: 16px;
     padding-bottom: 24px;
 }
+
+.progressBar {
+    margin-left: auto;
+    margin-right: auto;
+
+}
